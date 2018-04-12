@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 import { 
     EMAIL_CHANGED,
@@ -112,6 +113,7 @@ const loginUserFailure = (dispatch, error) => {
 
 /**
  * Dispatch a 'LOGIN_USER_SUCCESS' action containing the user.
+ * Navigate user to the employee list.
  * 
  * @param {ReduxThunk.dispatch} dispatch The dispatch function from the action
  * @param {Object} user The user's values passed back from firebase
@@ -122,5 +124,7 @@ const loginUserSuccess = (dispatch, user) => {
             payload: user,
             type: LOGIN_USER_SUCCESS
         });
+
+        Actions.main();
 
 };

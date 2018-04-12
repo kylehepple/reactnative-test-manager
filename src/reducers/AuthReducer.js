@@ -7,10 +7,10 @@ import {
 } from '../actions/AuthTypes';
 
 const INITIAL_STATE = {
-    email: '',
+    email: 'test@test.com',
     error: '',
     loading: false,
-    password: '',
+    password: 'password',
     user: null
 };
 
