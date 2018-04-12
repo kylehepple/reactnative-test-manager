@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import firebase from 'firebase';
 
 import reducers from './reducers';
-import Router from './Router';
+import Router from './Router';  
 
 
 class App extends Component {
 
-    componentDidMount() {
+    async componentDidMount() {
 
         firebase.initializeApp({
             apiKey: 'AIzaSyBFUD4_LohsMlJg8qyEPrSRKtTe1DL3rXg',
@@ -21,6 +20,7 @@ class App extends Component {
             storageBucket: 'manager-56458.appspot.com',
             messagingSenderId: '736598959323'
         });
+
     }
 
     render() {
