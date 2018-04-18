@@ -3,8 +3,9 @@ import { Actions } from 'react-native-router-flux';
 
 import { 
     EMPLOYEE_CREATE,
-    EMPLOYEE_UPDATE 
-} from './EmployeeTypes';
+    EMPLOYEE_UPDATE,
+    EMPLOYEES_FETCH_SUCCESS
+} from './types';
 
 
 export const employeeCreate = ({ name, phone, shift }) => {
@@ -23,7 +24,22 @@ export const employeeCreate = ({ name, phone, shift }) => {
 
 };
 
-export const employeeUpdate = config => ({
+export const employeeUpdate = (config) => ({
     payload: config,
     type: EMPLOYEE_UPDATE
 });
+
+export const employeesFetch = () => {
+
+    const { currentUser } = firebase.auth();
+
+    return async (dispatch) => {
+
+        await firebase.database().ref(`/users/${currentUser.uid}/employees`)
+            .on('value', (snapshot) => {
+                dispatch({ payload: snapshot.val(), type: EMPLOYEES_FETCH_SUCCESS });
+            });
+
+    };
+
+};

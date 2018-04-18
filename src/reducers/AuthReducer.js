@@ -4,7 +4,7 @@ import {
     LOGIN_USER_SUCCESS,
     PASSWORD_CHANGED,
     LOGIN_USER
-} from '../actions/AuthTypes';
+} from '../actions/types';
 
 const INITIAL_STATE = {
     email: 'test@test.com',

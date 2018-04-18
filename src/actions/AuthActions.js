@@ -7,7 +7,7 @@ import {
     LOGIN_USER_FAIL,
     LOGIN_USER_SUCCESS,
     PASSWORD_CHANGED
-} from './AuthTypes';
+} from './types';
 
 /**
  * 'emailChanged' action.
